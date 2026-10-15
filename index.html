@@ -1,0 +1,200 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="StudyApp: organiza tus tareas, exámenes y sesiones de estudio.">
+    <title>StudyApp | Organiza tu futuro</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app">
+        <aside class="sidebar">
+            <a href="#" class="brand">
+                <span class="brand-icon">✦</span>
+                <span>Study<span class="brand-light">App</span></span>
+            </a>
+
+            <p class="menu-label">MENÚ PRINCIPAL</p>
+            <nav class="navigation">
+                <a href="#inicio" class="nav-link active">▦ <span>Inicio</span></a>
+                <a href="#tareas" class="nav-link">☑ <span>Mis tareas</span></a>
+                <a href="#calendario" class="nav-link">▦ <span>Calendario</span></a>
+                <a href="#examenes" class="nav-link">✎ <span>Exámenes</span></a>
+                <a href="#notas" class="nav-link">▤ <span>Mis notas</span></a>
+            </nav>
+
+            <div class="sidebar-bottom">
+                <div class="motivation">
+                    <span class="sparkle">✧</span>
+                    <h3>¡Tú puedes!</h3>
+                    <p>Un pequeño avance cada día te acerca a tus metas.</p>
+                </div>
+                <a href="#configuracion" class="nav-link">⚙ <span>Configuración</span></a>
+                <div class="profile">
+                    <div class="avatar">A</div>
+                    <div>
+                        <strong>Mi espacio</strong>
+                        <small>Estudiante</small>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <main class="main-content" id="inicio">
+            <header class="topbar">
+                <div>
+                    <p class="eyebrow">TU ESPACIO DE ESTUDIO</p>
+                    <h1>¡Hola, estudiante! <span>✿</span></h1>
+                    <p class="subtitle">Organiza tu día y avanza a tu propio ritmo.</p>
+                </div>
+                <div class="today">
+                    <span>◷</span>
+                    <div>
+                        <strong id="current-date">Hoy</strong>
+                        <small>Un día para aprender algo nuevo</small>
+                    </div>
+                </div>
+            </header>
+
+            <section class="welcome-card">
+                <div class="welcome-text">
+                    <span class="welcome-label">TU META DE HOY</span>
+                    <h2>Cada paso cuenta.</h2>
+                    <p>Concéntrate en lo importante. ¡Tienes todo para lograrlo!</p>
+                    <a href="#tareas" class="welcome-button">Ver mis tareas ↗</a>
+                </div>
+                <div class="welcome-art" aria-hidden="true">
+                    <div class="art-circle">✦</div>
+                    <div class="art-book">📚</div>
+                    <span class="art-star star-one">✧</span>
+                    <span class="art-star star-two">✦</span>
+                    <span class="art-star star-three">✧</span>
+                </div>
+            </section>
+
+            <section class="stats-grid">
+                <article class="stat-card">
+                    <div class="stat-icon purple">☑</div>
+                    <p>Tareas pendientes</p>
+                    <strong id="pending-count">0</strong>
+                    <small>Por completar</small>
+                </article>
+                <article class="stat-card">
+                    <div class="stat-icon pink">✓</div>
+                    <p>Tareas completadas</p>
+                    <strong id="completed-count">0</strong>
+                    <small>¡Buen trabajo!</small>
+                </article>
+                <article class="stat-card">
+                    <div class="stat-icon blue">✎</div>
+                    <p>Próximos exámenes</p>
+                    <strong id="exam-count">0</strong>
+                    <small>En tu planificación</small>
+                </article>
+                <article class="stat-card">
+                    <div class="stat-icon yellow">◷</div>
+                    <p>Tiempo de estudio</p>
+                    <strong id="study-minutes">25 <span>min</span></strong>
+                    <small>Duración de una sesión</small>
+                </article>
+            </section>
+
+2            <div class="content-grid">
+                <section class="panel tasks-panel" id="tareas">
+                    <div class="panel-heading">
+                        <div>
+                            <h2>Mis tareas</h2>
+                            <p>Pequeños objetivos, grandes resultados.</p>
+                        </div>
+                        <span class="heading-icon">✧</span>
+                    </div>
+
+                    <form id="task-form" class="add-form">
+                        <input id="task-input" type="text" placeholder="Escribe una nueva tarea..." required maxlength="100">
+                        <button type="submit">+ Agregar</button>
+                    </form>
+
+                    <div class="task-filters">
+                        <button type="button" class="filter-btn selected" data-filter="all">Todas</button>
+                        <button type="button" class="filter-btn" data-filter="pending">Pendientes</button>
+                        <button type="button" class="filter-btn" data-filter="completed">Completadas</button>
+                    </div>
+                    <ul id="task-list" class="task-list"></ul>
+                    <p id="empty-tasks" class="empty-message">Todavía no tienes tareas. ¡Agrega la primera! ✨</p>
+                </section>
+
+                <section class="panel timer-panel">
+                    <div class="panel-heading">
+                        <div>
+                            <h2>Tiempo de concentración</h2>
+                            <p>Estudia sin distracciones.</p>
+                        </div>
+                        <span class="heading-icon">◷</span>
+                    </div>
+
+                    <div class="timer-circle">
+                        <div class="timer-inner">
+                            <span id="timer-mode">Tiempo de estudio</span>
+                            <strong id="timer-display">25:00</strong>
+                            <small>minutos : segundos</small>
+                        </div>
+                    </div>
+                    <div class="timer-presets">
+                        <button type="button" class="preset active" data-minutes="25">25 min</button>
+                        <button type="button" class="preset" data-minutes="15">15 min</button>
+                        <button type="button" class="preset" data-minutes="5">5 min</button>
+                    </div>
+                    <div class="timer-actions">
+                        <button id="timer-start" class="primary-button" type="button">▶ Iniciar</button>
+                        <button id="timer-reset" class="secondary-button" type="button">↻ Reiniciar</button>
+                    </div>
+                    <p class="timer-tip">💜 Recuerda descansar entre sesiones.</p>
+                </section>
+
+                <section class="panel exams-panel" id="examenes">
+                    <div class="panel-heading">
+                        <div>
+                            <h2>Próximos exámenes</h2>
+                            <p>Prepárate con tiempo.</p>
+                        </div>
+                        <span class="heading-icon">✎</span>
+                    </div>
+                    <form id="exam-form" class="exam-form">
+                        <input id="exam-name" type="text" placeholder="Nombre de la materia" required maxlength="80">
+                        <input id="exam-date" type="date" required>
+                        <button type="submit" class="primary-button">+ Agregar examen</button>
+                    </form>
+                    <ul id="exam-list" class="exam-list"></ul>
+                    <p id="empty-exams" class="empty-message">Aún no has agregado exámenes.</p>
+                </section>
+
+                <section class="panel notes-panel" id="notas">
+                    <div class="panel-heading">
+                        <div>
+                            <h2>Mis notas rápidas</h2>
+                            <p>Guarda ideas importantes.</p>
+                        </div>
+                        <span class="heading-icon">▤</span>
+                    </div>
+                    <textarea id="notes-input" placeholder="Escribe aquí tus apuntes, recordatorios o ideas..."></textarea>
+                    <div class="notes-footer">
+                        <span id="notes-status">Tus notas se guardan automáticamente.</span>
+                        <button type="button" id="clear-notes">Borrar notas</button>
+                    </div>
+                </section>
+            </div>
+
+            <footer class="footer">
+                <p>Hecho con <span>♥</span> para aprender cada día.</p>
+                <p>StudyApp © 2026</p>
+            </footer>
+        </main>
+    </div>
+
+    <script src="cript.js"></script>
+</body>
+</html>

@@ -1,0 +1,73 @@
+
+
+@media (max-width: 850px) {
+  .sidebar {
+    width: 72px;
+    padding: 20px 9px;
+    align-items: center;
+  }
+
+  .brand {
+    padding: 0;
+  }
+
+  .brand > span:last-child,
+  .workspace,
+  .menu-label,
+  .second-label,
+  .nav-link b {
+    display: none;
+  }
+
+  .navigation {
+    width: 100%;
+    margin-top: 25px;
+  }
+
+  .nav-link {
+    justify-content: center;
+    padding: 12px 0;
+  }
+
+  .nav-link > span {
+    font-size: 21px;
+  }
+
+  .sidebar-bottom {
+    width: 100%;
+  }
+
+  .upgrade-card {
+    display: none;
+  }
+
+  .profile-mini {
+    justify-content: center;
+    padding-top: 15px;
+  }
+
+  .profile-info,
+  .profile-mini .icon-button {
+    display: none;
+  }
+
+  .main-content {
+    margin-left: 72px;
+  }
+
+  .dashboard-grid,
+  .analytics-grid,
+  .timer-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-art {
+    width: 205px;
+    transform: scale(.75);
+    margin-left: -20px;
+  }
+
+  .search-box {
+    width: 180px;
+  }
+}
